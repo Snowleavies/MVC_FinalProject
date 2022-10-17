@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbmovieModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Tabletcategory1091750">
+    <Key>
+      <PropertyRef Name="fcategoryId" />
+    </Key>
+    <Property Name="fcategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fcategoryName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Tabletmovie1091750">
+    <Key>
+      <PropertyRef Name="fmovieId" />
+    </Key>
+    <Property Name="fmovieId" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="fmovieName" Type="nvarchar" MaxLength="30" />
+    <Property Name="fdate" Type="nvarchar" MaxLength="10" />
+    <Property Name="flevel" Type="nvarchar" MaxLength="10" />
+    <Property Name="fevaluation" Type="int" />
+    <Property Name="fcategoryId" Type="int" />
+  </EntityType>
+  <Association Name="FK__Tabletmov__fcate__1486F2C8">
+    <End Role="Tabletcategory1091750" Type="Self.Tabletcategory1091750" Multiplicity="0..1" />
+    <End Role="Tabletmovie1091750" Type="Self.Tabletmovie1091750" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tabletcategory1091750">
+        <PropertyRef Name="fcategoryId" />
+      </Principal>
+      <Dependent Role="Tabletmovie1091750">
+        <PropertyRef Name="fcategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="dbmovieModelStoreContainer">
+    <EntitySet Name="Tabletcategory1091750" EntityType="Self.Tabletcategory1091750" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tabletmovie1091750" EntityType="Self.Tabletmovie1091750" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Tabletmov__fcate__1486F2C8" Association="Self.FK__Tabletmov__fcate__1486F2C8">
+      <End Role="Tabletcategory1091750" EntitySet="Tabletcategory1091750" />
+      <End Role="Tabletmovie1091750" EntitySet="Tabletmovie1091750" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbmovieModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Tabletcategory1091750">
+    <Key>
+      <PropertyRef Name="fcategoryId" />
+    </Key>
+    <Property Name="fcategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fcategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Tabletmovie1091750" Relationship="Self.FK__Tabletmov__fcate__1486F2C8" FromRole="Tabletcategory1091750" ToRole="Tabletmovie1091750" />
+  </EntityType>
+  <EntityType Name="Tabletmovie1091750">
+    <Key>
+      <PropertyRef Name="fmovieId" />
+    </Key>
+    <Property Name="fmovieId" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="fmovieName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="fdate" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="flevel" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="fevaluation" Type="Int32" />
+    <Property Name="fcategoryId" Type="Int32" />
+    <NavigationProperty Name="Tabletcategory1091750" Relationship="Self.FK__Tabletmov__fcate__1486F2C8" FromRole="Tabletmovie1091750" ToRole="Tabletcategory1091750" />
+  </EntityType>
+  <Association Name="FK__Tabletmov__fcate__1486F2C8">
+    <End Role="Tabletcategory1091750" Type="Self.Tabletcategory1091750" Multiplicity="0..1" />
+    <End Role="Tabletmovie1091750" Type="Self.Tabletmovie1091750" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tabletcategory1091750">
+        <PropertyRef Name="fcategoryId" />
+      </Principal>
+      <Dependent Role="Tabletmovie1091750">
+        <PropertyRef Name="fcategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="dbmovieEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Tabletcategory1091750" EntityType="Self.Tabletcategory1091750" />
+    <EntitySet Name="Tabletmovie1091750" EntityType="Self.Tabletmovie1091750" />
+    <AssociationSet Name="FK__Tabletmov__fcate__1486F2C8" Association="Self.FK__Tabletmov__fcate__1486F2C8">
+      <End Role="Tabletcategory1091750" EntitySet="Tabletcategory1091750" />
+      <End Role="Tabletmovie1091750" EntitySet="Tabletmovie1091750" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

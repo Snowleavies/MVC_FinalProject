@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="dbmovieModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Tabletcategory1091750">
+          <Key>
+            <PropertyRef Name="fcategoryId" />
+          </Key>
+          <Property Name="fcategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fcategoryName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Tabletmovie1091750">
+          <Key>
+            <PropertyRef Name="fmovieId" />
+          </Key>
+          <Property Name="fmovieId" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="fmovieName" Type="nvarchar" MaxLength="30" />
+          <Property Name="fdate" Type="nvarchar" MaxLength="10" />
+          <Property Name="flevel" Type="nvarchar" MaxLength="10" />
+          <Property Name="fevaluation" Type="int" />
+          <Property Name="fcategoryId" Type="int" />
+        </EntityType>
+        <Association Name="FK__Tabletmov__fcate__1486F2C8">
+          <End Role="Tabletcategory1091750" Type="Self.Tabletcategory1091750" Multiplicity="0..1" />
+          <End Role="Tabletmovie1091750" Type="Self.Tabletmovie1091750" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tabletcategory1091750">
+              <PropertyRef Name="fcategoryId" />
+            </Principal>
+            <Dependent Role="Tabletmovie1091750">
+              <PropertyRef Name="fcategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="dbmovieModelStoreContainer">
+          <EntitySet Name="Tabletcategory1091750" EntityType="Self.Tabletcategory1091750" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tabletmovie1091750" EntityType="Self.Tabletmovie1091750" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Tabletmov__fcate__1486F2C8" Association="Self.FK__Tabletmov__fcate__1486F2C8">
+            <End Role="Tabletcategory1091750" EntitySet="Tabletcategory1091750" />
+            <End Role="Tabletmovie1091750" EntitySet="Tabletmovie1091750" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dbmovieModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Tabletcategory1091750">
+          <Key>
+            <PropertyRef Name="fcategoryId" />
+          </Key>
+          <Property Name="fcategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fcategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Tabletmovie1091750" Relationship="Self.FK__Tabletmov__fcate__1486F2C8" FromRole="Tabletcategory1091750" ToRole="Tabletmovie1091750" />
+        </EntityType>
+        <EntityType Name="Tabletmovie1091750">
+          <Key>
+            <PropertyRef Name="fmovieId" />
+          </Key>
+          <Property Name="fmovieId" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fmovieName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="fdate" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="flevel" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="fevaluation" Type="Int32" />
+          <Property Name="fcategoryId" Type="Int32" />
+          <NavigationProperty Name="Tabletcategory1091750" Relationship="Self.FK__Tabletmov__fcate__1486F2C8" FromRole="Tabletmovie1091750" ToRole="Tabletcategory1091750" />
+        </EntityType>
+        <Association Name="FK__Tabletmov__fcate__1486F2C8">
+          <End Role="Tabletcategory1091750" Type="Self.Tabletcategory1091750" Multiplicity="0..1" />
+          <End Role="Tabletmovie1091750" Type="Self.Tabletmovie1091750" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tabletcategory1091750">
+              <PropertyRef Name="fcategoryId" />
+            </Principal>
+            <Dependent Role="Tabletmovie1091750">
+              <PropertyRef Name="fcategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="dbmovieEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Tabletcategory1091750" EntityType="Self.Tabletcategory1091750" />
+          <EntitySet Name="Tabletmovie1091750" EntityType="Self.Tabletmovie1091750" />
+          <AssociationSet Name="FK__Tabletmov__fcate__1486F2C8" Association="Self.FK__Tabletmov__fcate__1486F2C8">
+            <End Role="Tabletcategory1091750" EntitySet="Tabletcategory1091750" />
+            <End Role="Tabletmovie1091750" EntitySet="Tabletmovie1091750" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dbmovieModelStoreContainer" CdmEntityContainer="dbmovieEntities">
+          <EntitySetMapping Name="Tabletcategory1091750">
+            <EntityTypeMapping TypeName="dbmovieModel.Tabletcategory1091750">
+              <MappingFragment StoreEntitySet="Tabletcategory1091750">
+                <ScalarProperty Name="fcategoryId" ColumnName="fcategoryId" />
+                <ScalarProperty Name="fcategoryName" ColumnName="fcategoryName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tabletmovie1091750">
+            <EntityTypeMapping TypeName="dbmovieModel.Tabletmovie1091750">
+              <MappingFragment StoreEntitySet="Tabletmovie1091750">
+                <ScalarProperty Name="fmovieId" ColumnName="fmovieId" />
+                <ScalarProperty Name="fmovieName" ColumnName="fmovieName" />
+                <ScalarProperty Name="fdate" ColumnName="fdate" />
+                <ScalarProperty Name="flevel" ColumnName="flevel" />
+                <ScalarProperty Name="fevaluation" ColumnName="fevaluation" />
+                <ScalarProperty Name="fcategoryId" ColumnName="fcategoryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="無" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

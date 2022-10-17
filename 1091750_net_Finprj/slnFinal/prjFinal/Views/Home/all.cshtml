@@ -1,0 +1,48 @@
+﻿@using PagedList
+@using PagedList.Mvc
+
+@model IPagedList<prjFinal.Models.Tabletmovieall1091750>
+
+@{
+    ViewBag.Title = "all";
+}
+
+<h2>電影推薦</h2>
+
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+
+
+<table class="table">
+    <tr>
+        <th>電影名字</th>
+        <th>上映日期</th>
+        <th>電影分級</th>
+        <th>電影評價</th>
+        <th>電影種類</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.tmovieName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tdate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tlevel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tevaluation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fcategory)
+            </td>
+
+        </tr>
+    }
+
+</table>
+@Html.PagedListPager(Model, page => Url.Action("all", new { page }))

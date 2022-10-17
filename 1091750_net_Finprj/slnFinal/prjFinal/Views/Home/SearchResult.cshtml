@@ -1,0 +1,54 @@
+﻿@model IEnumerable<prjFinal.Models.Tabletmovie1091750>
+
+@{
+    ViewBag.Title = "SearchResult";
+
+}
+
+<h2>SearchResult + @ViewData["SearchNum"]</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.fmovieName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fdate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.flevel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fevaluation)
+        </th>
+        <th>
+            電影種類
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.fmovieName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fdate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.flevel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fevaluation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tabletcategory1091750.fcategoryName)
+        </td>
+   
+    </tr>
+}
+
+</table>

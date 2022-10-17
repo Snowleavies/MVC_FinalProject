@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dbmovieModelStoreContainer" CdmEntityContainer="dbmovieEntities">
+    <EntitySetMapping Name="Tabletcategory1091750">
+      <EntityTypeMapping TypeName="dbmovieModel.Tabletcategory1091750">
+        <MappingFragment StoreEntitySet="Tabletcategory1091750">
+          <ScalarProperty Name="fcategoryId" ColumnName="fcategoryId" />
+          <ScalarProperty Name="fcategoryName" ColumnName="fcategoryName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tabletmovie1091750">
+      <EntityTypeMapping TypeName="dbmovieModel.Tabletmovie1091750">
+        <MappingFragment StoreEntitySet="Tabletmovie1091750">
+          <ScalarProperty Name="fmovieId" ColumnName="fmovieId" />
+          <ScalarProperty Name="fmovieName" ColumnName="fmovieName" />
+          <ScalarProperty Name="fdate" ColumnName="fdate" />
+          <ScalarProperty Name="flevel" ColumnName="flevel" />
+          <ScalarProperty Name="fevaluation" ColumnName="fevaluation" />
+          <ScalarProperty Name="fcategoryId" ColumnName="fcategoryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

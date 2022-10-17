@@ -1,0 +1,66 @@
+﻿@model IEnumerable<prjFinal.Models.Tabletcategory1091750>
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>電影新增</h2>
+
+<form method="post" action="@Url.Action("Create")">
+    <div class="form-horizontal">
+        <hr />
+        <div class="form-group">
+            <label for="fmovieId" class="control-label col-md-2">電影編號</label>
+            <div class="col-md-10">
+                <input type="text" id="fmovieId" name="fmovieId"
+                       class="form-control" required />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="fmovieName" class="control-label col-md-2">電影名字</label>
+            <div class="col-md-10">
+                <input type="text" id="fmovieName" name="fmovieName"
+                       class="form-control" required />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="fcategoryId" class="control-label col-md-2">片種</label>
+            <div class="col-md-10">
+                <select id="fcategoryId" name="fcategoryId" class="form-control">
+                    @foreach (var item in Model)
+                    {
+                        if (item.fcategoryId != 1)
+                        {
+                            <option value="@item.fcategoryId">@item.fcategoryName 片</option>
+                        }
+
+                    }
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="fdate" class="control-label col-md-2">上映時間</label>
+            <div class=" col-md-10">
+                <input type="text" id="fdate" name="fdate" class="form-control" required />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="flevel" class="control-label col-md-2">電影分級</label>
+            <div class=" col-md-10">
+                <input type="text" id="flevel" name="flevel" class="form-control" required />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="fevaluation" class="control-label col-md-2">電影評價</label>
+            <div class="col-md-10">
+                <input type="text" id="fevaluation" name="fevaluation" class="form-control" required />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="新增" class="btn btn-default" required />
+            </div>
+        </div>
+    </div>
+</form>

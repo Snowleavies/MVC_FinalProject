@@ -1,0 +1,56 @@
+﻿@model prjFinal.Models.CVMcatemovie
+
+@{
+    ViewBag.Title = "電影紀錄";
+}
+
+<h2>電影資訊紀錄系統-@ViewBag.catname</h2>
+<hr />
+<div class="row">
+    <div class="col-md-2">
+        @foreach (var item in Model.tabletcategories)
+        {
+            <p>
+                @Html.ActionLink(item.fcategoryName, "Index",
+                 new { category = item.fcategoryId }, new { @class="btn btn-primary"} )
+        </p>
+    }
+    </div>
+    <div class="col-md-9">
+        <table class="table">
+            <tr>
+                <th>電影號碼</th>
+                <th>電影名字</th>
+                <th>電影分級</th>
+                <th>電影評價</th>
+                <th>上映日期</th>
+                <th>編輯或刪除</th>
+            </tr>
+            @foreach (var item in Model.tabletmovies)
+            {
+                <tr>
+                    <td>@item.fmovieId</td>
+                    <td>@item.fmovieName</td>
+                    <td>@item.flevel</td>
+                    <td>@item.fdate</td>
+                    <td>@item.fevaluation</td>
+                    <td>
+                        @Html.ActionLink("刪除", "Delete",
+                            new { fmovieId = item.fmovieId },
+                        new
+                        {
+                            onclick = "return confine('確定刪除嗎');",
+                            @class = "btn btn-danger"
+                        })
+                        @Html.ActionLink("編輯", "Edit",
+                            new { fmovieId = item.fmovieId },
+                        new
+                        {
+                            @class = "btn btn-info"
+                        })
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>

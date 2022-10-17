@@ -1,0 +1,33 @@
+﻿@model prjFinal.Models.search
+@{
+    ViewBag.Title = "Search";
+}
+
+<h2>電影編號查詢</h2>
+<hr />
+
+@using (Html.BeginForm())
+{<form method="post" action="@Url.Action("Search")">
+        <div class="panel panel-warning">
+
+            <div class="panel-heading row">
+                <div class="col-md-3"></div>
+                <div class="col-md-4">
+                    @Html.TextBoxFor(m => m.s,
+                   new {@class = "form-control"})
+                </div>
+                <div class="col-md-3"></div>
+
+            </div>
+            <div class="panel-body row">
+                <div class="col-md-4"></div>
+                <div class="col-md-5">
+                    <input type="submit" value="查詢" class="btn btn-default" required />
+                </div>
+                <div class="col-md-4"></div>
+
+            </div>
+        </div>
+    </form>
+
+}

@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "帳號登入";
+}
+
+<h2>帳號登入</h2>
+
+<form method="post" action="@Url.Action("Login")">
+    <div class="panel panel-primary">
+        <div class="panel-heading">會員登入</div>
+        <div class="panel-body">
+            <div class="form-group">
+                帳號:
+                <input type="text" class="form-control" name="txtUid" required />
+            </div>
+            <div class="form-group">
+                密碼:
+                <input type="password" class="form-control" name="txtPwd" required />
+            </div>
+            <div>
+                <input type="submit" class="btn btn-primary" value="登入" />
+            </div>
+
+            <p class="txt-danger">@ViewBag.Err</p>
+
+        </div>
+        <p class="txt-danger">帳號為Hsiao</p>
+        <p class="txt-danger">密碼為1234</p>
+    </div>
+</form>
+
